@@ -43,7 +43,6 @@ jobs:
         run: |
           yq '. *= load("src/override-demo.yaml")' src/harness/values.yaml > tmp.values
           mv tmp.values src/harness/values.yaml
-          rm tmp.values
       
       - name: Run Chart Releaser demo
         uses: helm/chart-releaser-action@v1.4.1
