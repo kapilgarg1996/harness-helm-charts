@@ -41,8 +41,8 @@ jobs:
 
       - name: Override values.yaml for demo
         run: |
-          yq '. *= load("override.yaml")' values.yaml > tmp.values
-          mv tmp.values values.yaml
+          yq '. *= load("src/override-demo.yaml")' src/harness/values.yaml > tmp.values
+          mv tmp.values src/harness/values.yaml
           rm tmp.values
       
       - name: Run Chart Releaser demo
