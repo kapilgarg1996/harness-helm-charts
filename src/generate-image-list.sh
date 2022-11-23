@@ -1,3 +1,5 @@
 #!/bin/bash
 
-helm template . -f override.yaml | grep docker.io | sort -u  | sed 's/^[^:]*: //g' | sed -e 's/^[ \t]*//' > images.txt
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+helm template ${SCRIPT_DIR}/harness | grep docker.io | sort -u  | sed 's/^[^:]*: //g' | sed -e 's/^[ \t]*//' > images.txt
