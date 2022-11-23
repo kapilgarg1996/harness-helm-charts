@@ -3,7 +3,7 @@ name: Release chart-testing
 on:
   push:
     branches:
-      - main
+      - "!main"
     paths:
       - '**.yaml'
 
