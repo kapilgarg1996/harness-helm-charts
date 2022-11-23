@@ -1,14 +1,17 @@
-name: Release chart-testing
+name: Release chart harness
 
 on:
   push:
     branches:
-      - "!main"
+      - "main"
     paths:
       - '**.yaml'
+  issue_comment:
+    types: [created]
 
 jobs:
   release:
+    if: ${{ (github.event.issue.pull_request && github.event.comment.body == 'build') || github.event.commits }}
     permissions:
       contents: write
     runs-on: ubuntu-latest

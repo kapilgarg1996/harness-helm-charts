@@ -11,6 +11,9 @@ repos:
   rev: v0.1.17
   hooks:
   - id: helmlint
+- repo: https://github.com/harness/helm-charts
+  hooks:
+  - id: generate-images-list
 - repo: https://github.com/norwoodj/helm-docs
   rev: v1.11.0
   hooks:
